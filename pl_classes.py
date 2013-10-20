@@ -68,25 +68,4 @@ class panstarrs:
         self.spec = spe
         
         
-def get_healpix(ra_array, dec_array):
-    '''uses the binary raDec2directory_pix to work out what healpix the star lies in for 2 arrays of ra and dec'''
-    
-    healpix_array = []
-    
-    for i in range(len(ra_array)):
-        
-        # ra and dec are provided
-        ra=ra_array[i]
-        dec = dec_array[i]
-        
-        command='./raDec2directory_pix '+str(ra)+' '+str(dec)
-    
-        # run the command, get output and append to an array
-        os.system(command)
-        output=commands.getoutput(command)
-        healpix_array.append(output)
-        
-        
-    healpix_array = np.array(healpix_array)    
-    return healpix_array 
 	
